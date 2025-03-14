@@ -35,9 +35,7 @@ export class JwtAuthGuard implements CanActivate {
     private readonly walletRepository: Repository<WalletEntity>,
     private readonly jwtService: JwtService,
     private readonly logger: CustomLoggerService,
-  ) {
-    this.logger.setContext(JwtAuthGuard.name);
-  }
+  ) {}
 
   async getWalletById(id: number): Promise<string | null> {
     const redisKey = `user:id:${id}`;

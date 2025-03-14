@@ -10,6 +10,8 @@ import { envConfig } from './common/config/env.config';
 import { LoggerModule } from './common/logger/logger.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ScheduleModule } from '@nestjs/schedule';
+import { TransactionEntity } from './trade/entities/transaction.entity';
+import { WalletEntity } from './wallet/entities/wallet.entity';
 
 @Module({
   imports: [
@@ -24,7 +26,11 @@ import { ScheduleModule } from '@nestjs/schedule';
       username: envConfig.database.username,
       password: envConfig.database.password,
       database: envConfig.database.dbname,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [
+        __dirname + '/**/*.entity{.ts,.js}',
+        TransactionEntity,
+        WalletEntity,
+      ],
       synchronize: true,
     }),
     JwtModule.register({
@@ -34,6 +40,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     }),
     WalletModule,
     TradeModule,
+    TypeOrmModule.forFeature([TransactionEntity]),
     LoggerModule,
     ScheduleModule.forRoot(),
   ],
