@@ -97,6 +97,17 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
+## Step
+
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+npm install --save-dev @nestjs/cli
+npx nest --version
+npm run start
+
+## Create
+
 npm i -g @nestjs/cli
 nest new nestapi
 npm install @solana/web3.js mysql2 @nestjs/typeorm typeorm @nestjs-modules/ioredis ioredis @nestjs/websockets @nestjs/platform-socket.io openai dotenv
