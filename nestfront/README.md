@@ -57,7 +57,8 @@ export default tseslint.config({
 
 rm -rf node_modules package-lock.json  
 npm cache clean --force  
-npm install
-npm run dev
+npm install npm run dev
 
 npm install react react-dom react-router-dom
+
+npm install @solana/wallet-adapter-react @solana/wallet-adapter-base @solana/wallet-adapter-phantom react-router-dom zustand axios
